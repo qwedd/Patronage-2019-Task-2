@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Django Task 2 page</title>
+    <style>
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+      }
+      
+      li {
+        float: left;
+      }
+      
+      li a {
+        display: inline-block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+      
+      li a:hover {
+        background-color: #111;
+      }
+      
+      .active {
+        background-color: red;
+      }
+      </style>
+  </head>
+  
+  <body>
+
+<ul>
+  <li><a href="{% url 'task2app:index' %}">Home</a></li>
+  <li><a href="{% url 'task2app:home' %}" class="active">Solution</a></li>
+ </ul>
+
+    <h1>This is Task 2 solution page for Cognitive Patronage</h1>
+    <table border="1">
+        <tr>
+        <th> Worked Years </th>
+        <th> Salary </th>
+        </tr>
+            {% for data in all_salary %}
+        <tr>
+            <th> {{data.workedyears}} </th>
+            <th> {{data.salarybrutto}} </th>
+        </tr>
+           {% endfor %}
+    </table>
+  </body>
+</html>
